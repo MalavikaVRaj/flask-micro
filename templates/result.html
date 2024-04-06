@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 24px;
+        }
+        span {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>The result is <span>{{ result }}</span></h1>
+
+        {% if img_data %}
+            <img src="data:image/jpeg;base64,{{ img_data }}" alt="Image from backend" style="max-width: 300px; margin: 0 auto; display: block;">
+        {% endif %}
+    </div>
+</html>

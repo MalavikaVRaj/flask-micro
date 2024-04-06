@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="display: flex; justify-content: center;">
+        <h3 >Image Classification Form</h3>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <h4><a href="/">Insurance</a></h4>
+    </div>
+
+
+    <form action="/classify" method="post" enctype="multipart/form-data">
+        <label for="input_image">Upload an Image</label>
+        <input type="file" name="input_image" id="input_image" accept="image/*">
+        <button type="submit">Submit</button>
+    </form>
+
+    <img id="preview" src="" alt="Image Preview" style="max-width:200px; max-height:200px; display: none; margin: 0 auto; padding: 20px;">
+
+    <script>
+        document.getElementById("input_image").addEventListener("change", function(e) {
+          var file = e.target.files[0];
+          var reader = new FileReader();
+        
+          reader.onloadend = function() {
+            document.getElementById("preview").src = reader.result;
+          }
+
+          document.getElementById("preview").style.display = "block";
+        
+          if (file) {
+            reader.readAsDataURL(file);
+          } else {
+            preview.src = "";
+          }
+        });
+    </script>
+
+</body>
+</html>

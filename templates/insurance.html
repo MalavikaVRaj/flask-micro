@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        select {
+            appearance: none;
+            background: url('arrow-down.png') no-repeat right center;
+            background-size: 20px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: center;">
+        <h3 >Insurance Form</h3>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <h4><a href="/image_classify">Image Classification</a></h4>
+    </div>
+    
+    <form action="/insurance_predict" method="post">
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" required>
+        <label for="sex">Sex</label>
+        <select name="sex" id="sex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <label for="bmi">BMI</label>
+        <input type="number" name="bmi" id="bmi" step="0.01" required>
+        <label for="children">Children</label>
+        <input type="number" name="children" id="children" required>
+        <label for="smoker">Smoker</label>
+        <select name="smoker" id="smoker">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <label for="region">Region</label>
+        <select name="region" id="region">
+            <option value="northeast">Northeast</option>
+            <option value="southeast">Southeast</option>
+            <option value="southwest">Southwest</option>
+            <option value="northwest">Northwest</option>
+        </select>
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
